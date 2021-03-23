@@ -27,7 +27,6 @@
 	}
 
   .collapse.navbar-collapse{
-    transition: none;
     font-size:18px;
     position:absolute;
     z-index: 99;
