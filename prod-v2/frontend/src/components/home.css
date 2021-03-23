@@ -15,14 +15,45 @@
  
 }
 
+
 /* Smaller than standard 992 (devices and browsers) */
 @media only screen and (max-width: 992px) {
   .card{
     margin-top: 7px;
   }
 
-  
- 
+ .collapsing{
+		display:none;
+	}
+
+  .collapse.navbar-collapse{
+    transition: none;
+    font-size:18px;
+    position:absolute;
+    z-index: 99;
+    background:black;
+    left: 0%;
+    top:1%;
+    right: 55%;  
+  } 
+
+  .navbar-nav a::before {
+    content:"\2192";
+    margin-left : 1rem;
+    padding-right: 1rem;
+    color:white;
+    font-size: 22px;
+  }
+
+  .dropdown-menu.show{
+    background:black;
+  }
+
+  .dropdown-item {
+    color : rgba(255,255,255,.5) !important ;
+    font-size :16px;
+}
+
 }
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */

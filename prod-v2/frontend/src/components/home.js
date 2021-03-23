@@ -29,7 +29,6 @@ const Home = () => {
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
     </Nav>
@@ -50,7 +49,8 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="img-fluid Banner  d-block w-100"
-            src="img/wow111.jpg"
+            src = {process.env.PUBLIC_URL + '/img/wow111.jpg'}
+            // src="img/wow111.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -61,7 +61,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src="img/Originals/hands.jpg"
+            src={process.env.PUBLIC_URL +"/img/Originals/hands.jpg"}
             alt="Second slide"
           />
 
@@ -73,7 +73,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src="img/Originals/mam_taj.jpg"
+            src={process.env.PUBLIC_URL +"/img/Originals/mam_taj.jpg"}
             alt="Third slide"
           />
 
@@ -167,7 +167,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src="img/sir_mam1.jpg"
+                  src={process.env.PUBLIC_URL +"/img/sir_mam1.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -181,7 +181,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src="img/palm_tree.jpg"
+                  src={process.env.PUBLIC_URL +"/img/palm_tree.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -195,7 +195,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src="img/sakura_sir_mam.jpg"
+                  src={process.env.PUBLIC_URL +"/img/sakura_sir_mam.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
