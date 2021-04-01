@@ -8,77 +8,115 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoFilmOutline } from "react-icons/io5";
 
-const Home = () => {
+
+
+
+const Menu = () => {
   return (
-    <div 
-    style = {{ overflowX: "hidden" }}
-    >
+    <div>
       {/* Navbar Started */}
 
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="#home">
-  <IoFilmOutline size = "3rem" />&nbsp;
-            WAPP Digitals        
-  </Navbar.Brand>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="#features">Home</Nav.Link>
-      <Nav.Link href="#pricing">About Us</Nav.Link>
-      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-    <Nav>
-      <Nav.Link href="#deets">Support</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Our Company
-      </Nav.Link>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        sticky="top"
+      >
+        <Navbar.Brand href="#home">
+          {/* <img
+        src={process.env.PUBLIC_URL +"/logo.jpg"}
+         width="30"
+         height="30"
+        className="d-inline-block align-top"
+        alt="WAPP Digitals logo"
+      />{' '} */}
+          <IoFilmOutline size="3rem" />
+          &nbsp; WAPP Digitals
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#features">Home</Nav.Link>
+            <Nav.Link href="#pricing">About Us</Nav.Link>
+            <NavDropdown title="Services" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Wedding</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Pre-Wedding
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Maternity</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">
+                Baley Shower
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.5">
+                Product Photoshoot
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.6">
+                Event Photos
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.7">
+                Fashion Photography
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="#pricing">Testimonial</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">Download Brochure</Nav.Link>
+            <Nav.Link href="#deets">Support</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Contact Us
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
       {/* Navbar Finished */}
+    </div>
+  );
+};
 
+
+const Home = () => {
+  return (
+    <div style={{ overflowX: "hidden" }}>
+      <Menu/>
+      
+      
       {/* Carousel Started */}
-
+       
       <Carousel>
         <Carousel.Item>
           <img
             className="img-fluid Banner  d-block w-100"
-            src = {process.env.PUBLIC_URL + '/img/wow111.jpg'}
-            // src="img/wow111.jpg"
+            src={process.env.PUBLIC_URL + "/img/wow111.jpg"}
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
+            <h3>Memories that last forever</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src={process.env.PUBLIC_URL +"/img/Originals/hands.jpg"}
+            src={process.env.PUBLIC_URL + "/img/Originals/hands.jpg"}
             alt="Second slide"
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
+            <h3>Your Bond , Our Dedication</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src={process.env.PUBLIC_URL +"/img/Originals/mam_taj.jpg"}
+            src={process.env.PUBLIC_URL + "/img/Originals/mam_taj.jpg"}
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Captured Perfectly</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
@@ -163,15 +201,15 @@ const Home = () => {
       >
         <div className="container-sm">
           <div className="row">
-            <Carousel className="col-lg-5 my-5">
+            <Carousel className="col-lg-5 my-5 ">
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src={process.env.PUBLIC_URL +"/img/sir_mam1.jpg"}
+                  src={process.env.PUBLIC_URL + "/img/sir_mam1.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
+                  <h3>Share the love</h3>
                   <p>
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                   </p>
@@ -181,11 +219,11 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src={process.env.PUBLIC_URL +"/img/palm_tree.jpg"}
+                  src={process.env.PUBLIC_URL + "/img/palm_tree.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
+                  <h3>Creativity at it's best</h3>
                   <p>
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                   </p>
@@ -195,18 +233,17 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100 my-auto"
-                  src={process.env.PUBLIC_URL +"/img/sakura_sir_mam.jpg"}
+                  src={process.env.PUBLIC_URL + "/img/sakura_sir_mam.jpg"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
+                  <h3>All you need is love and unforgetable Moments</h3>
                   <p>
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
-
             <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12  ">
               {/* <!-- Section: Features v.4 --> */}
               <section className="text-white">
@@ -219,152 +256,98 @@ const Home = () => {
                 <p className="lead grey-text text-center w-responsive mx-auto mb-5">
                   With WAPP, you need not worry about anything sveniam.
                 </p>
-
-                {/*<!-- Grid row -->*/}
                 <div className="row text-center justify-content-center">
-                  {/*<!-- Grid column -->*/}
-                  <div className=" col-md-4 ">
-                    {/*<!-- Grid row -->*/}
-                    <div className="row ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-flag"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold ">International</h4>
-                        <p className="grey-text small">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
-                    {/*<!-- Grid row -->*/}
-                    <div className="row ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-ruler-pencil"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold ">Experimental</h4>
-                        <p className="grey-text small">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
-
-                    {/*<!-- Grid row -->*/}
-                    <div className="row  ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-flag"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold ">Relaxing</h4>
-                        <p className="grey-text small ">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark ">
+                      Easy To Book
+                    </h4>
+                    <p className="text-muted">
+                      You can book anything at anytime in just one click.
+                    </p>
                   </div>
-                  {/*<!-- Grid column -->*/}
 
-                  {/*<!-- Grid column -->*/}
-                  <div className=" col-md-4 ">
-                    {/*<!-- Grid row -->*/}
-                    <div className="row ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-flag"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold ">Magical</h4>
-                        <p className="grey-text small">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
-                    {/*<!-- Grid row -->*/}
-                    <div className="row ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-ruler-pencil"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold">Rapid</h4>
-                        <p className="grey-text small">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
-
-                    {/*<!-- Grid row -->*/}
-                    <div className="row  ">
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-2">
-                      <i className="lni lni-flag"></i>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-
-                      {/*<!-- Grid column -->*/}
-                      <div className="col-10">
-                        <h4 className="font-weight-bold ">Beloved</h4>
-                        <p className="grey-text small  ">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Reprehenderit maiores nam, aperiam minima
-                          assumenda deleniti hic.
-                        </p>
-                      </div>
-                      {/*<!-- Grid column -->*/}
-                    </div>
-                    {/*<!-- Grid row -->*/}
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark ">
+                      Best Quality
+                    </h4>
+                    <p className="text-muted">
+                      We deliver best quality service by Skilled professionals
+                      trained by the best . We capture your priceless memories
+                      very beautifully.
+                    </p>
                   </div>
-                  {/*<!-- Grid column -->*/}
+
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark">
+                      Life long data access
+                    </h4>
+                    <p className="text-muted">
+                      Memories that last forever , We believe that few memories
+                      are so beautiful that they are meant to be preserved
+                      forever. Hence, We provide lifelong data storage facility
+                      for you using which you can access and personalize
+                      whenever you want.
+                    </p>
+                  </div>
+
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark ">Passion</h4>
+                    <p className="text-muted">
+                      We are not just artirts, we have endless passion for
+                      photography and cinematography.
+                    </p>
+                  </div>
+
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark">Compare</h4>
+                    <p className="text-muted">
+                      Just compare it and you will see that why we are known for
+                      our exceptional service.
+                    </p>
+                  </div>
+
+                  <div className=" col-lg-10 card">
+                    <h4>
+                      <i className="lni lni-flag text-dark"></i>
+                    </h4>
+                    <h4 className="font-weight-bold text-dark">One solution</h4>
+                    <p className="text-muted">
+                      One solution to every service needed for cinematography
+                      and photography. No matter what you need, we provide
+                      totally customised service on only one platform , BOOK
+                      ASAP ON WAPP.
+                    </p>
+                  </div>
                 </div>
-                {/*<!-- Grid row -->*/}
               </section>
               {/* <!-- Section: Features v.4 --> */}
             </div>
           </div>
         </div>
       </div>
-
-
-
-      
     </div>
   );
 };
 
-export default Home;
+
+
+
+
+
+
+export default  Home;

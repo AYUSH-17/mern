@@ -3,6 +3,18 @@
     object-fit: cover;
 }
 
+.swiper-container {
+  width: 500px;
+}
+
+.swiper-pagination {
+  bottom: 0;
+  padding-bottom: 10px;
+}
+
+.swiper-wrapper {
+  padding-inline-start: 0;
+}
 
 @media only screen and (min-width: 992px) {
   .card{
@@ -15,6 +27,17 @@
  
 }
 
+/* .carousel-indicators  {
+  position: relative !important;
+  top: 50px !important;
+} */
+/* 
+.carousel-control-next-icon{
+  background-image : url(//url of icon);
+}
+.carousel-control-prev-icon{
+background-image : url(//url of icon);
+} */
 
 /* Smaller than standard 992 (devices and browsers) */
 @media only screen and (max-width: 992px) {
@@ -30,11 +53,12 @@
     font-size:18px;
     position:absolute;
     z-index: 99;
-    background:black;
+    background:#343a40;
     left: 0%;
-    top:1%;
-    right: 55%;  
-  } 
+    top:100%;
+    width:100%;
+    transition: ;
+   } 
 
   .navbar-nav a::before {
     content:"\2192";
@@ -45,12 +69,19 @@
   }
 
   .dropdown-menu.show{
-    background:black;
+    border:0rem; 
+    border-radius:0em;
+    background:#343a40;
   }
 
   .dropdown-item {
     color : rgba(255,255,255,.5) !important ;
     font-size :16px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover , .dropdown-item:visited ,.dropdown-item a:visited , .dropdown-item a:active{
+  color : white !important;
+  background-color: #343a40 !important;
 }
 
 }
