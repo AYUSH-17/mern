@@ -7,15 +7,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoFilmOutline } from "react-icons/io5";
-
-
-
+import Swiper from "swiper";
+import "swiper/swiper-bundle.css";
+import SwiperCore, { Navigation, Pagination } from "swiper/core";
 
 const Menu = () => {
   return (
     <div>
       {/* Navbar Started */}
-
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -75,15 +74,128 @@ const Menu = () => {
   );
 };
 
+const WappFeatures = ({ title, description }) => {
+  return (
+    <div className=" col-lg-12 ">
+      <h4>
+        <i className="lni lni-flag text-white"></i>
+      </h4>
+      <h4 className="font-weight-bold text-white ">{title}</h4>
+      <p className="text-light mx-5">{description}</p>
+    </div>
+  );
+};
+
+const BasicFeatures = ({ iconName, title, description }) => {
+  return (
+    <div className="col-lg-4 col-md-12 col-sm-12 card">
+      <div className="display-3 text-muted ">
+        <LineIcon name={iconName} />
+        <h4>{title} </h4>
+      </div>
+      <div className="text-dark">
+        <p className=" text-secondary ">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+SwiperCore.use([Navigation, Pagination]);
+
+const CardSwiper = () => {
+  const swiper = new Swiper(".swiper-container", {
+    observer: true,
+    observeParents: true,
+    loop:true,
+    rebuildOnUpdate: true,
+    effect: "cube",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 10,
+    freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    
+  });
+
+  return (
+    <div className="swiper-container">
+      <div className="swiper-wrapper">
+        <div className="swiper-slide">
+          <WappFeatures
+            title="Easy To Book"
+            description="You can book anything at anytime in just one click."
+          />
+        </div>
+        <div className="swiper-slide">
+          <WappFeatures
+            title="Best Quality"
+            description="We deliver best quality service by Skilled professionals 
+                    trained by the best . We capture your priceless memories very beautifully."
+          />
+        </div>
+        <div className="swiper-slide">
+          <WappFeatures
+            title="Life long data access"
+            description="Memories that last forever , We believe that few memories
+                  are so beautiful that they are meant to be preserved
+                  forever. Hence, We provide lifelong data storage facility
+                  for you using which you can access and personalize
+                  whenever you want."
+          />
+        </div>
+        <div className="swiper-slide">
+          <WappFeatures
+            title="Passion"
+            description="We are not just artirts, we have endless passion for
+                  photography and cinematography."
+          />
+        </div>
+        <div className="swiper-slide">
+          <WappFeatures
+            title="Compare"
+            description="Just compare it and you will see that why we are known for
+                  our exceptional service."
+          />
+        </div>
+        <div className="swiper-slide">
+          <WappFeatures
+            title="One solution"
+            description="One solution to every service needed for cinematography
+                  and photography. No matter what you need, we provide
+                  totally customised service on only one platform , BOOK
+                  ASAP ON WAPP."
+          />
+        </div>
+      </div>
+
+      <div className="swiper-button-prev "></div>
+      <div className="swiper-button-next "></div>
+
+    </div>
+  );
+};
 
 const Home = () => {
   return (
     <div style={{ overflowX: "hidden" }}>
-      <Menu/>
-      
-      
+      <Menu />
+
       {/* Carousel Started */}
-       
+
       <Carousel>
         <Carousel.Item>
           <img
@@ -111,7 +223,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src={process.env.PUBLIC_URL + "/img/Originals/mam_taj.jpg"}
+            src={process.env.PUBLIC_URL + "/img/Originals/sir_mam_taj.jpg"}
             alt="Third slide"
           />
 
@@ -146,50 +258,28 @@ const Home = () => {
 
       <div className="container">
         <div className="row wrap-up">
-          <div className="col-lg-4 col-md-12 col-sm-12 card">
-            <div className="display-3 text-muted ">
-              <LineIcon name="lni lni-layers " />
-              <h4>Variety of Styles </h4>
-            </div>
-            <div className="text-dark">
-              {/* <h4>Variety of Styles </h4> */}
-              <p className=" text-secondary ">
-                We get you a wide range of talented artists, each having their
-                expertise and their own style. <br />
-                Or if you want, you can choose 'All Rounders' with experience in
-                all sorts of events.{" "}
-              </p>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-12 col-sm-12 card">
-            <div className="display-3 text-muted">
-              <i className="lni lni-camera"></i>
-              <h4>Certified Professionals</h4>
-            </div>
-            <div className="text-dark">
-              {/* <h4>Certified Professionals</h4> */}
-              <p className=" text-secondary ">
-                Our team consists of certified members with experience and
-                knowledge. We also keep on expanding our technology and acquire
-                more of the latest devices through a spectrum of standard DSLRs
-                to high flying drones for various projects.
-              </p>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-12 col-sm-12 card">
-            <div className="display-3 text-muted">
-              <i className="lni lni-agenda"></i>
-              <h4>Easy Booking and Flexibility</h4>
-            </div>
-            <div className="text-dark">
-              {/* <h4>Easy Booking and Flexibility</h4> */}
-              <p className=" text-secondary ">
-                Need a booking for an event? Click. And its done! Yes it is that
-                simple with WAPP. Login to your account. Give us booking details
-                and we will get back to you.
-              </p>
-            </div>
-          </div>
+          <BasicFeatures
+            iconName="lni lni-layers "
+            title="Variety of Styles"
+            description='We get you a wide range of talented artists, each having their
+        expertise and their own style. Or if you want, you can choose "All Rounders" with experience in
+        all sorts of events.'
+          />
+          <BasicFeatures
+            iconName="lni lni-camera "
+            title="Certified Professionals"
+            description="Our team consists of certified members with experience and
+            knowledge. We also keep on expanding our technology and acquire
+            more of the latest devices through a spectrum of standard DSLRs
+            to high flying drones for various projects."
+          />
+          <BasicFeatures
+            iconName="lni lni-agenda "
+            title="Easy Booking and Flexibility"
+            description="Need a booking for an event? Click. And its done! Yes it is that
+            simple with WAPP. Login to your account. Give us booking details
+            and we will get back to you."
+          />
         </div>
       </div>
 
@@ -257,82 +347,7 @@ const Home = () => {
                   With WAPP, you need not worry about anything sveniam.
                 </p>
                 <div className="row text-center justify-content-center">
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark ">
-                      Easy To Book
-                    </h4>
-                    <p className="text-muted">
-                      You can book anything at anytime in just one click.
-                    </p>
-                  </div>
-
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark ">
-                      Best Quality
-                    </h4>
-                    <p className="text-muted">
-                      We deliver best quality service by Skilled professionals
-                      trained by the best . We capture your priceless memories
-                      very beautifully.
-                    </p>
-                  </div>
-
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark">
-                      Life long data access
-                    </h4>
-                    <p className="text-muted">
-                      Memories that last forever , We believe that few memories
-                      are so beautiful that they are meant to be preserved
-                      forever. Hence, We provide lifelong data storage facility
-                      for you using which you can access and personalize
-                      whenever you want.
-                    </p>
-                  </div>
-
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark ">Passion</h4>
-                    <p className="text-muted">
-                      We are not just artirts, we have endless passion for
-                      photography and cinematography.
-                    </p>
-                  </div>
-
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark">Compare</h4>
-                    <p className="text-muted">
-                      Just compare it and you will see that why we are known for
-                      our exceptional service.
-                    </p>
-                  </div>
-
-                  <div className=" col-lg-10 card">
-                    <h4>
-                      <i className="lni lni-flag text-dark"></i>
-                    </h4>
-                    <h4 className="font-weight-bold text-dark">One solution</h4>
-                    <p className="text-muted">
-                      One solution to every service needed for cinematography
-                      and photography. No matter what you need, we provide
-                      totally customised service on only one platform , BOOK
-                      ASAP ON WAPP.
-                    </p>
-                  </div>
+                  <CardSwiper />
                 </div>
               </section>
               {/* <!-- Section: Features v.4 --> */}
@@ -344,10 +359,4 @@ const Home = () => {
   );
 };
 
-
-
-
-
-
-
-export default  Home;
+export default Home;

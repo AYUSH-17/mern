@@ -80,7 +80,7 @@ var Swiper = /*#__PURE__*/function () {
       args[_key] = arguments[_key];
     }
 
-    if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
+    if (args.length === 1 && args[0].constructor && Object.prototype.toString.call(args[0]).slice(8, -1) === 'Object') {
       params = args[0];
     } else {
       el = args[0];
@@ -104,6 +104,7 @@ var Swiper = /*#__PURE__*/function () {
 
 
     var swiper = this;
+    swiper.__swiper__ = true;
     swiper.support = (0, _getSupport.getSupport)();
     swiper.device = (0, _getDevice.getDevice)({
       userAgent: params.userAgent

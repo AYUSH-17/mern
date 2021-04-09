@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.default = updateSlides;
 
-var _ssrWindow = require("ssr-window");
-
 var _utils = require("../../../utils/utils");
 
 function updateSlides() {
@@ -32,7 +30,6 @@ function updateSlides() {
     return parseFloat(node.getPropertyValue(getDirectionLabel(label)) || 0);
   };
 
-  var window = (0, _ssrWindow.getWindow)();
   var params = swiper.params;
   var $wrapperEl = swiper.$wrapperEl,
       swiperSize = swiper.size,
@@ -159,7 +156,7 @@ function updateSlides() {
     if (slide.css('display') === 'none') continue; // eslint-disable-line
 
     if (params.slidesPerView === 'auto') {
-      var slideStyles = window.getComputedStyle(slide[0], null);
+      var slideStyles = getComputedStyle(slide[0]);
       var currentTransform = slide[0].style.transform;
       var currentWebKitTransform = slide[0].style.webkitTransform;
 
@@ -180,7 +177,7 @@ function updateSlides() {
         var paddingRight = getDirectionPropertyValue(slideStyles, 'padding-right');
         var marginLeft = getDirectionPropertyValue(slideStyles, 'margin-left');
         var marginRight = getDirectionPropertyValue(slideStyles, 'margin-right');
-        var boxSizing = slideStyles.getPropertyValue(slideStyles, 'box-sizing');
+        var boxSizing = slideStyles.getPropertyValue('box-sizing');
 
         if (boxSizing && boxSizing === 'border-box') {
           slideSize = width + marginLeft + marginRight;

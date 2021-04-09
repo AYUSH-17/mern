@@ -4,16 +4,18 @@
 }
 
 .swiper-container {
-  width: 500px;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.swiper-pagination {
-  bottom: 0;
-  padding-bottom: 10px;
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
 }
 
-.swiper-wrapper {
-  padding-inline-start: 0;
+.swiper-button-prev , .swiper-button-next {
+    color: white!important;
 }
 
 @media only screen and (min-width: 992px) {
@@ -21,23 +23,13 @@
     margin: 7px; 
   }
 
+
+
   .wrap-up{
     flex-wrap:nowrap !important ;
   }
  
 }
-
-/* .carousel-indicators  {
-  position: relative !important;
-  top: 50px !important;
-} */
-/* 
-.carousel-control-next-icon{
-  background-image : url(//url of icon);
-}
-.carousel-control-prev-icon{
-background-image : url(//url of icon);
-} */
 
 /* Smaller than standard 992 (devices and browsers) */
 @media only screen and (max-width: 992px) {
