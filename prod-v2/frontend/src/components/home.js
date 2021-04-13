@@ -57,11 +57,11 @@ const Menu = () => {
                 Fashion Photography
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#pricing">Testimonial</Nav.Link>
+            <Nav.Link href="#Testimonial">Testimonial</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Download Brochure</Nav.Link>
-            <Nav.Link href="#deets">Support</Nav.Link>
+            <Nav.Link href="#Brochure">Download Brochure</Nav.Link>
+            <Nav.Link href="#Support">Support</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               Contact Us
             </Nav.Link>
@@ -106,14 +106,14 @@ const CardSwiper = () => {
   const swiper = new Swiper(".swiper-container", {
     observer: true,
     observeParents: true,
-    loop:true,
+    // loop:true,
     rebuildOnUpdate: true,
     effect: "cube",
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: "auto",
-    spaceBetween: 10,
-    freeMode: true,
+    spaceBetween: 0,
+    // freeMode: true,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
     coverflowEffect: {
