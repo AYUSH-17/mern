@@ -1,7 +1,12 @@
 .Banner{
-    max-height: 100vh;
     object-fit: cover;
+    max-height: 740px;
 }
+
+.Navbar-headings ,.Navbar-headings a{
+  color: rgb(0 0 0) !important;
+}
+
 
 .swiper-container {
   width: 100%;
@@ -22,9 +27,7 @@
   .card{
     margin: 7px; 
   }
-
-
-
+  
   .wrap-up{
     flex-wrap:nowrap !important ;
   }
@@ -83,6 +86,10 @@
   .card{
     margin-top: 7px;
   }
+
+  .Banner{
+    max-height: 550px;
+  }
   
 }
 
@@ -90,6 +97,9 @@
 @media only screen and (max-width: 767px) {
   .card{
     margin-top: 7px;
+  }
+  .Banner{
+    max-height: 400px;
   }
 }
 
@@ -108,5 +118,9 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right:10px;
+  }
+
+  .Banner{
+    max-height: 245px;
   }
 }

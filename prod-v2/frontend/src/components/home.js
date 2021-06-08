@@ -1,5 +1,6 @@
 import React from "react";
 import "./home.css";
+import {LinkContainer} from 'react-router-bootstrap'
 import LineIcon from "react-lineicons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
@@ -7,9 +8,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoFilmOutline } from "react-icons/io5";
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import SwiperCore, { Navigation, Pagination } from "swiper/core";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 const Menu = () => {
   return (
@@ -18,53 +19,49 @@ const Menu = () => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="dark"
-        variant="dark"
+        // bg="lights"
+      //  variant="light"
         sticky="top"
       >
-        <Navbar.Brand href="#home">
-          {/* <img
-        src={process.env.PUBLIC_URL +"/logo.jpg"}
-         width="30"
-         height="30"
-        className="d-inline-block align-top"
-        alt="WAPP Digitals logo"
-      />{' '} */}
+        <LinkContainer to='/'>
+        <Navbar.Brand>
           <IoFilmOutline size="3rem" />
           &nbsp; WAPP Digitals
         </Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">About Us</Nav.Link>
-            <NavDropdown title="Services" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Wedding</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Pre-Wedding
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Maternity</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Baley Shower
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.5">
-                Product Photoshoot
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.6">
-                Event Photos
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.7">
-                Fashion Photography
-              </NavDropdown.Item>
+          <LinkContainer to='/'>
+            <Nav.Link  className = "Navbar-headings">Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to='/aboutus'>
+            <Nav.Link className = "Navbar-headings">About Us</Nav.Link>
+          </LinkContainer>
+            <NavDropdown className = "Navbar-headings" title="Services" id="collasible-nav-dropdown">
+            <LinkContainer to='/services/wedding'><NavDropdown.Item eventKey={1}>Wedding</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/prewedding'><NavDropdown.Item eventKey={2}>Pre-Wedding</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/maternity'><NavDropdown.Item eventKey={3}>Maternity</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/babyshower'><NavDropdown.Item eventKey={4}>Baby Shower</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/productphotoshoot'><NavDropdown.Item eventKey={5}> Product Photoshoot</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/eventphotos'><NavDropdown.Item eventKey={6}>Event Photos</NavDropdown.Item></LinkContainer>
+            <LinkContainer to='/services/fashionphotography'><NavDropdown.Item eventKey={7}>Fashion Photography</NavDropdown.Item></LinkContainer>
             </NavDropdown>
-            <Nav.Link href="#Testimonial">Testimonial</Nav.Link>
+            <LinkContainer to='/Testimonial'>
+            <Nav.Link className = "Navbar-headings">Testimonial</Nav.Link>
+            </LinkContainer>
+            
           </Nav>
           <Nav>
-            <Nav.Link href="#Brochure">Download Brochure</Nav.Link>
-            <Nav.Link href="#Support">Support</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Contact Us
-            </Nav.Link>
+            <LinkContainer to='/brochure'>
+            <Nav.Link className = "Navbar-headings">Download Brochure</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/support'>
+            <Nav.Link className = "Navbar-headings">Support</Nav.Link>
+            </LinkContainer> 
+            <LinkContainer to='/contactus'>
+              <Nav.Link className = "Navbar-headings"> ContactUs</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -100,112 +97,90 @@ const BasicFeatures = ({ iconName, title, description }) => {
   );
 };
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const CardSwiper = () => {
-  const swiper = new Swiper(".swiper-container", {
-    observer: true,
-    observeParents: true,
-    // loop:true,
-    rebuildOnUpdate: true,
-    effect: "cube",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 0,
-    // freeMode: true,
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    
-  });
-
   return (
-    <div className="swiper-container">
-      <div className="swiper-wrapper">
-        <div className="swiper-slide">
-          <WappFeatures
-            title="Easy To Book"
-            description="You can book anything at anytime in just one click."
-          />
-        </div>
-        <div className="swiper-slide">
-          <WappFeatures
-            title="Best Quality"
-            description="We deliver best quality service by Skilled professionals 
+    <Swiper
+      spaceBetween={5}
+      slidesPerView={"auto"}
+      navigation
+      loop={{ loop: true }}
+      pagination={{ clickable: true }}
+      onSlideChange={() => {
+        /*...*/
+      }}
+      onReachEnd={() => {
+        /*...*/
+      }}
+    >
+      <SwiperSlide>
+        <WappFeatures
+          title="Easy To Book"
+          description="You can book anything at anytime in just one click."
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WappFeatures
+          title="Best Quality"
+          description="We deliver best quality service by Skilled professionals 
                     trained by the best . We capture your priceless memories very beautifully."
-          />
-        </div>
-        <div className="swiper-slide">
-          <WappFeatures
-            title="Life long data access"
-            description="Memories that last forever , We believe that few memories
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WappFeatures
+          title="Life long data access"
+          description="Memories that last forever , We believe that few memories
                   are so beautiful that they are meant to be preserved
                   forever. Hence, We provide lifelong data storage facility
                   for you using which you can access and personalize
                   whenever you want."
-          />
-        </div>
-        <div className="swiper-slide">
-          <WappFeatures
-            title="Passion"
-            description="We are not just artirts, we have endless passion for
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WappFeatures
+          title="Passion"
+          description="We are not just artirts, we have endless passion for
                   photography and cinematography."
-          />
-        </div>
-        <div className="swiper-slide">
-          <WappFeatures
-            title="Compare"
-            description="Just compare it and you will see that why we are known for
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WappFeatures
+          title="Compare"
+          description="Just compare it and you will see that why we are known for
                   our exceptional service."
-          />
-        </div>
-        <div className="swiper-slide">
-          <WappFeatures
-            title="One solution"
-            description="One solution to every service needed for cinematography
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <WappFeatures
+          title="One solution"
+          description="One solution to every service needed for cinematography
                   and photography. No matter what you need, we provide
                   totally customised service on only one platform , BOOK
                   ASAP ON WAPP."
-          />
-        </div>
-      </div>
-
-      <div className="swiper-button-prev "></div>
-      <div className="swiper-button-next "></div>
-
-    </div>
+        />
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
 const Home = () => {
   return (
-    <div style={{ overflowX: "hidden" }}>
+      <div style={{ overflowX: "hidden"}}>
       <Menu />
 
       {/* Carousel Started */}
 
-      <Carousel>
-        <Carousel.Item>
+      <Carousel fade>
+        <Carousel.Item >
           <img
-            className="img-fluid Banner  d-block w-100"
+            className="img-fluid Banner  d-block w-100 center"
             src={process.env.PUBLIC_URL + "/img/wow111.jpg"}
             alt="First slide"
           />
           <Carousel.Caption>
             <h3>Memories that last forever</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p>Memories are timeless treasure of the heart.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -217,20 +192,20 @@ const Home = () => {
 
           <Carousel.Caption>
             <h3>Your Bond , Our Dedication</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Beautiful moment once gone unclicked , it's impossible to reproduce.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="img-fluid Banner d-block w-100"
-            src={process.env.PUBLIC_URL + "/img/Originals/sir_mam_taj.jpg"}
+            src={process.env.PUBLIC_URL + "/img/mam_taj.jpg"}
             alt="Third slide"
           />
 
           <Carousel.Caption>
             <h3>Captured Perfectly</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Strive for greatness and perfection.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -301,7 +276,7 @@ const Home = () => {
                 <Carousel.Caption>
                   <h3>Share the love</h3>
                   <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    Love is the onle thing that can be shared infintely without diminishing.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
@@ -315,7 +290,7 @@ const Home = () => {
                 <Carousel.Caption>
                   <h3>Creativity at it's best</h3>
                   <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    Everthing you can imagine is real.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
@@ -329,7 +304,7 @@ const Home = () => {
                 <Carousel.Caption>
                   <h3>All you need is love and unforgetable Moments</h3>
                   <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    Every moment is a fresh begining.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
@@ -359,4 +334,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export  { Home , Menu};
